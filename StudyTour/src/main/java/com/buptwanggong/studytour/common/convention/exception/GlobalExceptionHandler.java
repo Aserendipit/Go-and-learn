@@ -9,6 +9,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * 全局异常捕获
+ */
 @Component
 @Slf4j
 @RestControllerAdvice

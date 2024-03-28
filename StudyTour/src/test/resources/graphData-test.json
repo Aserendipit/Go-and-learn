@@ -1,0 +1,31 @@
+{
+  "pointId": "point0",
+  "mapId": "map1",
+  "x": 724.997305612712,
+  "y": 382.10412788830814,
+  "type": "teachingBuildings",
+  "width": 30,
+  "length": 30,
+  "neighbors": [
+    {
+      "destination": "point18",
+      "distance": 68.51881474167932
+    },
+    {
+      "destination": "point50",
+      "distance": 51.03497597907501
+    },
+    {
+      "destination": "point54",
+      "distance": 61.96976671206753
+    },
+    {
+      "destination": "point110",
+      "distance": 53.46921633496607
+    },
+    {
+      "destination": "point114",
+      "distance": 53.9724587153632
+    }
+  ]
+}

@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
     public UserDTO login(String username, String password) {
         //1.检查缓存是否有登录信息
         UserDTO userDTO;
-        if (cacheService.get(username) != null) {
-            return (UserDTO) cacheService.get(username);
+        if (cacheService.get(USER_LOGIN_KEY +username) != null) {
+            return (UserDTO) cacheService.get(USER_LOGIN_KEY +username);
         }
         //2.验证数据库是否存在
         List<User> userList = userMapper.selectList(null);
