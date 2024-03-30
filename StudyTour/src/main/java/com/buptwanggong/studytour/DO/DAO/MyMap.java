@@ -9,9 +9,12 @@ import lombok.Data;
 @TableName("`map`")
 public class MyMap {
     @TableId(type = IdType.AUTO)
-    private Integer mapId;
+    private String mapId;
     private String mapName;
     private String description;
+    private String mapType;
+    private String countryRegion;
+    private String imageId;
 
     public MyMap() {
     }

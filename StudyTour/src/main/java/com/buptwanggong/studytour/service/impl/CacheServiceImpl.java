@@ -2,12 +2,14 @@ package com.buptwanggong.studytour.service.impl;
 
 import com.buptwanggong.studytour.service.CacheService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ConcurrentHashMap;
 @Service
 @RequiredArgsConstructor
 public class CacheServiceImpl implements CacheService {
+
     private final ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
 
     @Override

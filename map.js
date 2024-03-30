@@ -115,7 +115,7 @@ const calculateDistance = (pointA, pointB) => {
 };
 
 
-// 生成随机边
+// 生成边
 const generateEdges = (points) => {
     const pointIds = Object.keys(points);
 
@@ -133,7 +133,7 @@ const generateEdges = (points) => {
                     closestPointId = destinationId;
                 }
 
-                // 如果距离小于或等于50，则创建边
+                // 如果距离小于或等于85，则创建边
                 if (distance <= 85) {
                     // 确保每个点的neighbors属性是一个数组
                     if (!points[sourceId].neighbors) {

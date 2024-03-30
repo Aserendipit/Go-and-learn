@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class UserDTO extends User {
+
     private String token;
 
     public UserDTO(String username, String uuid) {
@@ -16,5 +17,11 @@ public class UserDTO extends User {
 
     public UserDTO() {
 
+    }
+
+    public UserDTO(String username, String password, String uuid) {
+        this.setUserName(username);
+        this.setUserPassword(password);
+        this.setToken(uuid);
     }
 }
