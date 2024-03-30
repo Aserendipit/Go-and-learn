@@ -17,4 +17,10 @@ public class UserDTO extends User {
     public UserDTO() {
 
     }
+
+    public UserDTO(String username, String password, String uuid) {
+        this.setUserName(username);
+        this.setUserPassword(password);
+        this.setToken(uuid);
+    }
 }
