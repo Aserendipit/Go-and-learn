@@ -25,7 +25,7 @@ import java.util.List;
 public class MapController {
     private final MapService mapService;
     @GetMapping("/maptest")
-    public Result<Graph> hello()
+    public Result<Graph> maptest()
     {
         Graph graph=mapService.getGraph(8);
         return Results.success(graph);

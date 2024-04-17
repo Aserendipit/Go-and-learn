@@ -118,49 +118,41 @@ public class MapServiceImpl implements MapService {
         return myMapOrders;
     }
     public List<MyMapOrder> heapSort(List<MyMapOrder> myMaps,String orderType,int num){
-        // Build the heap in array a so that largest value is at the root
         int n = myMaps.size();
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(myMaps, n, i, orderType);
         }
 
-        // Extract the elements from the heap one by one
-        // We only sort the first 'num' elements if 'num' is less than the size of the list
         int end = Math.min(num, n);
         for (int i = n - 1; i >= n - end; i--) {
-            // Move current root to end, which is considered sorted
             MyMapOrder temp = myMaps.get(0);
             myMaps.set(0, myMaps.get(i));
             myMaps.set(i, temp);
 
-            // call max heapify on the reduced heap
             heapify(myMaps, i, 0, orderType);
         }
 
-        return myMaps.subList(0, end); // Return only the sorted top 'num' elements
+        return myMaps.subList(0, end);
     }
     private void heapify(List<MyMapOrder> myMaps, int heapSize, int i, String orderType) {
-        int smallest = i; // Initialize smallest as root
-        int left = 2 * i + 1; // left = 2*i + 1
-        int right = 2 * i + 2; // right = 2*i + 2
+        int smallest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-        // If left child is smaller than root
+
         if (left < heapSize && compare(myMaps.get(left), myMaps.get(smallest), orderType) < 0) {
             smallest = left;
         }
 
-        // If right child is smaller than smallest so far
         if (right < heapSize && compare(myMaps.get(right), myMaps.get(smallest), orderType) < 0) {
             smallest = right;
         }
 
-        // If smallest is not root
         if (smallest != i) {
             MyMapOrder swap = myMaps.get(i);
             myMaps.set(i, myMaps.get(smallest));
             myMaps.set(smallest, swap);
 
-            // Recursively heapify the affected sub-tree
             heapify(myMaps, heapSize, smallest, orderType);
         }
     }
@@ -168,7 +160,7 @@ public class MapServiceImpl implements MapService {
     private int compare(MyMapOrder a, MyMapOrder b, String orderType) {
         if ("score".equals(orderType)) {
             return Double.compare(a.getScore(), b.getScore());
-        } else { // Default to "population"
+        } else {
             return Integer.compare(a.getPopulation(), b.getPopulation());
         }
     }

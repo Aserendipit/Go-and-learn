@@ -54,14 +54,12 @@ public class UserServiceImpl implements UserService {
         if (loginUser == null) {
             throw new ClientException("登录失败，用户名不存在或密码错误");
         }
-        //3.将登录信息tonken存到缓存中
+        //3.将登录信息和tonken存到缓存中
         String uuid = UUID.randomUUID().toString();
         userDTO= new UserDTO(username, password,uuid);
         cacheService.set(USER_LOGIN_KEY + username, loginUser);
         userDTO.setUserPassword(null);
         return userDTO;
     }
-    public String hashPassword(String plainTextPassword){
-        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-    }
+
 }
