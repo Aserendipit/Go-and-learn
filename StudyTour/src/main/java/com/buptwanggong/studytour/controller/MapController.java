@@ -24,10 +24,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MapController {
     private final MapService mapService;
-    @GetMapping("/maptest")
-    public Result<Graph> maptest()
+    @GetMapping("/getMapMassage")
+    public Result<Graph> getMapMassage(Integer mapId)
     {
-        Graph graph=mapService.getGraph(8);
+        Graph graph=mapService.getGraph(mapId);
         return Results.success(graph);
     }
 
